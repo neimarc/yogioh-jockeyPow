@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./src/assets/favicon/Favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" 
+    rel="stylesheet">
+
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./src/styles/reset.css">
+    <link rel="stylesheet" href="./src/styles/main.css">
+    
+    <!-- framework -->
+    <link rel="stylesheet" href="./src/styles/buttons.css">
+    <link rel="stylesheet" href="./src/styles/containers_and_frames.css">
+    
+    <title>Yugioh: Pedra, Papel e Tesoura</title>
+</head>
+
+<body>
+    <!-- Para setar o áudio de fundo -->
+    <audio id="bgm" autoplay loop>
+        <source src="./src/assets/audios/egyptian_duel.mp3" type="audio/mp3"/>
+    </audio>
+
+    <!-- div.bg-video+div.container>(div.container__left+div.container__right) é a si
+    taxe das divs abaixo -->
+    <div class="bg-video">
+
+        <!-- Para o vídeo tocar automática e repetidamente e mudo -->
+        <video class="video" autoplay loop muted>
+            <!-- A fonte do vídeo e o tipo -->
+            <source src="./src/assets/video/yugi.mp4" type="video/mp4"/>
+        </video>
+    </div>
+
+    <div class="container">
+        <!-- A classe framed-golden-2 é do framework -->
+        <div class="container__left framed-golden-2">
+        <!-- Div dos pontos -->
+            <div class="score_box frame">
+                <span id="score_points">Win : 0 | Lose: 0</span>
+            </div>
+            
+            <div class="menu_avatar">
+                <!-- img#card-image para tem o abaixo -->
+                <!-- o source será atribuído dinamicamente no js -->
+                <img id="card-image">
+            </div>
+
+            <div class="card_details frame">
+                <!-- p#card-name+p#card-type , aparece o abaixo -->
+                <p id="card-name">Selecione</p>
+                <p id="card-type">uma carta</p>
+            </div>
+        </div>
+
+        <div class="container__right">
+            <div class="card-box__container">
+                <!-- A classe framed é do framework -->
+                <div class="card-box framed" id="computer-cards">
+
+                </div>
+
+                <!-- div.versus-top+div.versus-bottom -->
+                <div class="card-versus__container">
+
+                    <div class="versus-top">
+
+                        <div class="card-infield">
+                            <img id="player-field-card"
+                            height="180px" width="125px">
+                        </div>
+
+                        <!-- Imagem do olho -->
+                        <img height="100px" src="./src/assets/icons/millenium2.png">
+                    
+                        <div class="card-infield">
+                            <img id="computer-field-card"
+                            height="180px" width="125px">
+                        </div>
+
+                    </div>
+
+                    <div class="versus-bottom">
+
+                        <!-- O conteúdo deste button será mudado dinamicamente.
+                         A classe "rpgui-button" é do framework-->
+                        <button id="next-duel" class="rpgui-button"
+                        onclick="resetDuel()">
+                            GANHOU!
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="card-box framed" id="player-cards">
+
+                </div>
+            </div>
+
+        </div>
+    </div> 
+
+    <script src="./src/scripts/engine.js" defer></script>
+</body>
+</html>
